@@ -2,11 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/flash-white.webp" />
+    <link id="favicon" rel="icon" type="image/webp" href="/flash-white.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio</title>
-    <script type="module" crossorigin src="/assets/index-BcWgZvxX.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CXijSP87.css">
+    <script>
+      function setFavicon(isDark) {
+        const favicon = document.getElementById('favicon');
+        if (favicon) {
+          favicon.href = isDark ? '/flash-white.webp' : '/flash.webp';
+        }
+      }
+
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      setFavicon(prefersDark.matches);
+
+      prefersDark.addEventListener('change', (e) => setFavicon(e.matches));
+    </script>
+    <script type="module" crossorigin src="/assets/index-DEa6DkYP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ByY7mtrq.css">
   </head>
   <body class="text-black bg-white font-montserrat dark:bg-black dark:text-white">
     <div id="root"></div>
